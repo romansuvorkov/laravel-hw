@@ -3,7 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use App\Classes\GetEnvironment;
+use App\Services\ConfigService;
 
 class EnvironmentInfoServiceProvider extends ServiceProvider
 {
@@ -14,12 +14,12 @@ class EnvironmentInfoServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bind('App\Classes\GetEnvironment', function ($app) {
-            return new GetEnvironment();
+        $this->app->bind('App\Services\ConfigService', function ($app) {
+            return new ConfigService();
         });
 
-        $this->app->singleton('GetEnvironment', function ($app) {
-            return new GetEnvironment();
+        $this->app->singleton('ConfigService', function ($app) {
+            return new ConfigService();
         });
     }
 }

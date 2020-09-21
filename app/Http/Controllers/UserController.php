@@ -2,15 +2,14 @@
 
 namespace App\Http\Controllers;
 
-//use App\Http\Controllers\Controller;
-use App\Facades\GetEnvironment;
+use App\Facades\ConfigFacade;
 
 class UserController extends Controller
 {
     public function showInfo()
     {
-        $userName = GetEnvironment::getName();
-        $environment = GetEnvironment::getEnv();
+        $userName = ConfigFacade::getName();
+        $environment = ConfigFacade::getEnv();
         echo "User name is: $userName <br/>";
         echo "Environment is: $environment <br/>";
     }

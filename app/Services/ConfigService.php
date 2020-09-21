@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Classes;
+namespace App\Services;
 
 use Illuminate\Support\Facades\App;
 
-class GetEnvironment
+class ConfigService
 {
     protected string $name;
     protected string $environment;
@@ -12,7 +12,7 @@ class GetEnvironment
     public function __construct()
     {
         $this->name = $_ENV['NAME'];
-        $this->environment = App::environment();
+        $this->environment = config('app.env');
     }
 
     public function getName(): string
